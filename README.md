@@ -44,5 +44,5 @@ Please feel free to contribute to the repo! Or if you would like to update the d
 
 ## Example use
 
-![Sample Image](https://puu.sh/FrTg8.png)
+![Sample Image](https://puu.sh/FrVco.png)
 
