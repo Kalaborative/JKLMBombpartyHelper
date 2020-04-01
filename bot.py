@@ -1,5 +1,6 @@
 from time import sleep
 from random import choice
+from termcolor import colored
 import pyperclip
 import json
 letterbank = "abcdefghijlmnopqrstuv"
@@ -31,7 +32,7 @@ if language.lower() == "english":
                 if reported_words:
                     print("Reported words this game:")
                     for bad_word in reported_words:
-                        print(bad_word)
+                        print(colored(bad_word, 'red'))
                 break
             found = False
             for word in text:
@@ -47,11 +48,12 @@ if language.lower() == "english":
                     chosen_word = choice(preferred_words)
                 else:
                     chosen_word = choice(matching_words)                    
-                print("Result: {}".format(chosen_word))
+                print("Result: {}".format(colored(chosen_word, 'green')))
                 pyperclip.copy(chosen_word)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
                 if "report" in unacceptable:
+                    print("Reported this word.")
                     reported_words.append(chosen_word)
                 if not unacceptable:
                     for c in chosen_word:
@@ -62,7 +64,7 @@ elif language.lower() == "french":
         text = wordlist.read().splitlines()
 
         # Longer words only! 
-        text = [t for t in text if len(t) > 8]
+        # text = [t for t in text if len(t) > 8]
 
         print("Word list loaded.")
         sleep(1)
@@ -75,13 +77,13 @@ elif language.lower() == "french":
             if not individual_letters:
                 for l in letterbank:
                     individual_letters.append(l)
-            print(individual_letters)
+            # print(individual_letters)
             letters = input("Send a combination of letters: ")
             if letters.lower() == "stop":
                 if reported_words:
                     print("Reported words this game:")
                     for bad_word in reported_words:
-                        print(bad_word)
+                        print(colored(bad_word, 'red'))
                 break
             found = False
             for word in text:
@@ -94,6 +96,7 @@ elif language.lower() == "french":
             else:
                 preferred_words = [word for word in matching_words for i in individual_letters if i in word]
 
+                # Prefer words that are adjectives!
                 # preferred_words_adj = [p for p in preferred_words if p[-4:] == "ment"]
                 # if preferred_words_adj:
                 #     chosen_word = choice(preferred_words_adj)
@@ -101,12 +104,13 @@ elif language.lower() == "french":
                     chosen_word = choice(preferred_words)
                 else:
                     chosen_word = choice(matching_words)                    
-                print("Result: {}".format(chosen_word))
+                print("Result: {}".format(colored(chosen_word, 'green')))
                 pyperclip.copy(chosen_word)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
                 if "report" in unacceptable:
                     reported_words.append(chosen_word)
+                    print("Reported this word.")
                 text.remove(chosen_word)
                 if not unacceptable:                  
                     for c in chosen_word:
