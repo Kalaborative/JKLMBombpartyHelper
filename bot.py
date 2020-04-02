@@ -26,7 +26,7 @@ if language.lower() == "english":
             if not individual_letters:
                 for l in letterbank:
                     individual_letters.append(l)
-            print(individual_letters)
+            # print(individual_letters)
             letters = input("Send a combination of letters: ")
             if letters.lower() == "stop":
                 if reported_words:

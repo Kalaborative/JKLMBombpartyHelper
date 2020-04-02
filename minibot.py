@@ -1,6 +1,6 @@
 _P='Reported this word.'
 _O='report'
-_N='Press enter to accept otherwise enter any text if failed.'
+_N='Press enter to accept otherwise enter any text if failed.'      
 _M='green'
 _L='Result: {}'
 _K='A match could not be found!'
@@ -25,12 +25,12 @@ print('Choose ENGLISH or FRENCH')
 language=input(_B)
 if language.lower()=='english':
         with open('sowpods.txt','r')as wordlist:
-                text=wordlist.read().splitlines();print(_C);sleep(1);print(_D);sleep(1);print(_E);reported_words=[]       
+                text=wordlist.read().splitlines();print(_C);sleep(1);print(_D);sleep(1);print(_E);reported_words=[]
                 while _A:
                         matching_words=[]
                         if not individual_letters:
                                 for l in letterbank:individual_letters.append(l)
-                        print(individual_letters);letters=input(_F)
+                        letters=input(_F)
                         if letters.lower()==_G:
                                 if reported_words:
                                         print(_H)
@@ -41,17 +41,17 @@ if language.lower()=='english':
                                 if letters in word.lower():found=_A;matching_words.append(word)
                         if not found:print(_K)
                         else:
-                                preferred_words=[A for A in matching_words for B in individual_letters if B in A.lower()] 
+                                preferred_words=[A for A in matching_words for B in individual_letters if B in A.lower()]
                                 if preferred_words:chosen_word=choice(preferred_words)
                                 else:chosen_word=choice(matching_words)
-                                print(_L.format(colored(chosen_word,_M)));pyperclip.copy(chosen_word);print(_N);unacceptable=input(_B)
+                                print(_L.format(colored(chosen_word,_M)));pyperclip.copy(chosen_word);print(_N);unacceptable=input(_B)  
                                 if _O in unacceptable:print(_P);reported_words.append(chosen_word)
                                 if not unacceptable:
-                                        for c in chosen_word:
-                                                if c.lower()in individual_letters:individual_letters.remove(c.lower())    
+                                        for c in chosen_word:       
+                                                if c.lower()in individual_letters:individual_letters.remove(c.lower())
 elif language.lower()=='french':
         with open('touslesmots.txt','r')as wordlist:
-                text=wordlist.read().splitlines();print(_C);sleep(1);print(_D);sleep(1);print(_E);reported_words=[]       
+                text=wordlist.read().splitlines();print(_C);sleep(1);print(_D);sleep(1);print(_E);reported_words=[]
                 while _A:
                         matching_words=[]
                         if not individual_letters:
@@ -70,10 +70,10 @@ elif language.lower()=='french':
                                 preferred_words=[A for A in matching_words for B in individual_letters if B in A]
                                 if preferred_words:chosen_word=choice(preferred_words)
                                 else:chosen_word=choice(matching_words)
-                                print(_L.format(colored(chosen_word,_M)));pyperclip.copy(chosen_word);print(_N);unacceptable=input(_B)
+                                print(_L.format(colored(chosen_word,_M)));pyperclip.copy(chosen_word);print(_N);unacceptable=input(_B)  
                                 if _O in unacceptable:reported_words.append(chosen_word);print(_P)
-                                text.remove(chosen_word)     
+                                text.remove(chosen_word)
                                 if not unacceptable:
-                                        for c in chosen_word:
-                                                if c.lower()in individual_letters:individual_letters.remove(c.lower())    
-else:print("Please type either 'english' or 'french'.") 
+                                        for c in chosen_word:       
+                                                if c.lower()in individual_letters:individual_letters.remove(c.lower())
+else:print("Please type either 'english' or 'french'.")
