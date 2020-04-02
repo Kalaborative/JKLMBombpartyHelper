@@ -1,14 +1,31 @@
 from time import sleep
 from random import choice
 from termcolor import colored
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 import pyperclip
 import json
+
+web_link = "http://bombparty.sparklinlabs.com/"
 letterbank = "abcdefghijlmnopqrstuv"
 
 individual_letters = []
 
 for l in letterbank:
     individual_letters.append(l)
+
+print("Starting up browser...")
+chrome_options = Options()
+chrome_options.add_argument('disable-infobars')
+browser = webdriver.Chrome(options=chrome_options)
+browser.implicitly_wait(5)
+
+print("Navigating to the BombParty website...")
+browser.get(web_link)
+
+print("Please choose your room! Hit enter when ready. Make sure you're in the game!")
+ready = input("> ")
 
 print("Choose ENGLISH or FRENCH")
 language = input("> ")
@@ -33,6 +50,7 @@ if language.lower() == "english":
                     print("Reported words this game:")
                     for bad_word in reported_words:
                         print(colored(bad_word, 'red'))
+                browser.quit()
                 break
             found = False
             for word in text:
@@ -50,6 +68,11 @@ if language.lower() == "english":
                     chosen_word = choice(matching_words)                    
                 print("Result: {}".format(colored(chosen_word, 'green')))
                 pyperclip.copy(chosen_word)
+                inputBox = browser.find_element_by_id("WordInputBox")
+                for c in chosen_word:
+                    inputBox.send_keys(c)
+                    sleep(0.01) # pause for 0.3 seconds
+                inputBox.send_keys(Keys.ENTER)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
                 if "report" in unacceptable:
@@ -84,6 +107,7 @@ elif language.lower() == "french":
                     print("Reported words this game:")
                     for bad_word in reported_words:
                         print(colored(bad_word, 'red'))
+                browser.quit()
                 break
             found = False
             for word in text:
@@ -102,10 +126,17 @@ elif language.lower() == "french":
                 #     chosen_word = choice(preferred_words_adj)
                 if preferred_words:
                     chosen_word = choice(preferred_words)
+                    # chosen_word = max(preferred_words, key=len)
                 else:
-                    chosen_word = choice(matching_words)                    
+                    chosen_word = choice(matching_words)
+                    # chosen_word = max(matching_words, key=len)                    
                 print("Result: {}".format(colored(chosen_word, 'green')))
                 pyperclip.copy(chosen_word)
+                inputBox = browser.find_element_by_id("WordInputBox")
+                for c in chosen_word:
+                    inputBox.send_keys(c)
+                    sleep(0.01) # pause for 0.01 seconds
+                inputBox.send_keys(Keys.ENTER)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
                 if "report" in unacceptable:
