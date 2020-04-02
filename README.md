@@ -14,7 +14,7 @@ You need a browser and Python installed on your system.
  2. Open a terminal and navigate to downloaded directory
  3. Run `pip install -r requirements.txt`
  4. Run either **bot.py** or **minibot.py**. Minibot is condensed for
-    better performance.
+    better performance. If it gives you an error about the wrong ChromeDriver version, please download the correct one [here](https://chromedriver.chromium.org/downloads)!
 
 ## Usage
 
