@@ -6,10 +6,14 @@ idna==2.8
 isort==4.3.21
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
+mnfy==34.0.0
+pyarmor==5.9.5
 pylint==2.4.4
 pyminifier==2.1
 pyperclip==1.7.0
 python-minifier==2.3.0
+requests==2.22.0
+selenium==3.141.0
 six==1.13.0
 termcolor==1.1.0
 typed-ast==1.4.0
