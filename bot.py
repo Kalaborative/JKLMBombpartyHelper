@@ -71,7 +71,7 @@ if language.lower() == "english":
                 inputBox = browser.find_element_by_id("WordInputBox")
                 for c in chosen_word:
                     inputBox.send_keys(c)
-                    sleep(0.01) # pause for 0.3 seconds
+                    sleep(0.02) # pause for 0.3 seconds
                 inputBox.send_keys(Keys.ENTER)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
@@ -135,7 +135,7 @@ elif language.lower() == "french":
                 inputBox = browser.find_element_by_id("WordInputBox")
                 for c in chosen_word:
                     inputBox.send_keys(c)
-                    sleep(0.01) # pause for 0.01 seconds
+                    sleep(0.02) # pause for 0.01 seconds
                 inputBox.send_keys(Keys.ENTER)
                 print("Press enter to accept otherwise enter any text if failed.")
                 unacceptable = input("> ")
