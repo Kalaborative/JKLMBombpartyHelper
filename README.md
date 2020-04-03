@@ -20,9 +20,8 @@ You need a browser and Python installed on your system.
 
 Follow the prompts for English or French. You can type "stop" to stop the program or manually break by pressing Ctrl+C.
 
- - *bot.py* - Main script. Type the letters and it gives you a word. The word is automatically copied to your clipboard so you just have to
-   paste.  Or you can type it out.
- - *minibot.py* - Same as bot.py only minified
+ - *bot.py* - Main script. This will open a Chrome window. Type the letters and it will automatically send a word.
+ - *minibot.py* - Use this one if you don't want to launch a new Chrome window.
  - *new_word_fr.py* - Adds a new word to the French dictionary if not already there
  - *search_fr.py* - Searches the French dictionary for a string of characters
  - *sowpods.txt* - The user-supplied English dictionary

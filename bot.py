@@ -37,6 +37,8 @@ if language.lower() == "english":
         print("To quit the program, type 'stop'.")
         sleep(1)
         print("Type 'report' to report a word for not valid.")
+        sleep(1)
+        print("Type 'reset' to reset your letter bank.")
         reported_words = []
         while True:
             matching_words = []
@@ -52,6 +54,10 @@ if language.lower() == "english":
                         print(colored(bad_word, 'red'))
                 browser.quit()
                 break
+            if letters.lower() == "reset":
+                individual_letters = []
+                print("All letters reset.")
+                continue
             found = False
             for word in text:
                 if letters in word.lower():
@@ -94,6 +100,8 @@ elif language.lower() == "french":
         print("To quit the program, type 'stop'.")
         sleep(1)
         print("Type 'report' to report a word for not valid.")
+        sleep(1)
+        print("Type 'reset' to reset your letter bank.")
         reported_words = []
         while True:
             matching_words = []
@@ -109,6 +117,10 @@ elif language.lower() == "french":
                         print(colored(bad_word, 'red'))
                 browser.quit()
                 break
+            if letters.lower() == "reset":
+                individual_letters = []
+                print("All letters reset.")
+                continue
             found = False
             for word in text:
                 if letters in word.lower():
