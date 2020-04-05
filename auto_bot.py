@@ -3,7 +3,7 @@ from random import choice
 from termcolor import colored
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import JavascriptException
+from selenium.common.exceptions import JavascriptException, ElementNotInteractableException
 from selenium.webdriver.common.keys import Keys
 import pyperclip
 import json
@@ -24,12 +24,14 @@ browser = webdriver.Chrome(options=chrome_options)
 browser.implicitly_wait(5)
 
 def sendWord(word):
+    sleep(1)
     inputBox = browser.find_element_by_id("WordInputBox")
     for w in word:
         inputBox.send_keys(w)
         sleep(0.02) # recommend for 0.02 seconds
-    inputBox.send_keys(Keys.ENTER)
     sleep(0.5) # leave a small window between suggestions
+    inputBox.send_keys(Keys.ENTER)
+
 
 print("Navigating to the BombParty website...")
 browser.get(web_link)
@@ -101,31 +103,35 @@ if language.lower() == "english":
                                 # pyperclip.copy(chosen_word)
                                 sendWord(chosen_word)
                                 text.remove(chosen_word)
-                                print("Press enter to accept otherwise enter any text if failed.")
-                                unacceptable = input("> ")
-                                if "report" in unacceptable:
-                                    reported_words.append(chosen_word)
-                                    print("Reported this word.")
-                                    chosen_word = choice(matching_words)
-                                    sendWord(chosen_word)
-                                elif unacceptable:
-                                    chosen_word = choice(matching_words)
-                                    sendWord(chosen_word)
-                                if not unacceptable:                  
-                                    for c in chosen_word:
-                                        if c.lower() in individual_letters:
-                                            individual_letters.remove(c.lower())
+                                for c in chosen_word:
+                                    if c.lower() in individual_letters:
+                                        individual_letters.remove(c.lower())
+                                # print("Press enter to accept otherwise enter any text if failed.")
+                                # unacceptable = input("> ")
+                                # if "report" in unacceptable:
+                                #     reported_words.append(chosen_word)
+                                #     print("Reported this word.")
+                                #     chosen_word = choice(matching_words)
+                                #     sendWord(chosen_word)
+                                # elif unacceptable:
+                                #     chosen_word = choice(matching_words)
+                                #     sendWord(chosen_word)
+                                # if not unacceptable:                  
             except KeyboardInterrupt:
+                print("Shutting down browser...")
                 browser.quit()
+                print("Closing program...")
                 sys.exit() 
             except JavascriptException:
+                pass
+            except ElementNotInteractableException:
                 pass
 elif language.lower() == "french":
     with open("touslesmots.txt", "r") as wordlist:
         text = wordlist.read().splitlines()
 
         # Longer words only! 
-        # text = [t for t in text if len(t) > 8]
+        # text = [t for t in text if len(t) < 8]
 
         print("Word list loaded.")
         sleep(1)
@@ -196,10 +202,14 @@ elif language.lower() == "french":
                                 #         if c.lower() in individual_letters:
                                 #             individual_letters.remove(c.lower())
             except KeyboardInterrupt:
+                print("Shutting down browser...")
                 browser.quit()
+                print("Closing program...")
                 sys.exit()
             
             except JavascriptException:
+                pass
+            except ElementNotInteractableException:
                 pass
             
 else:
