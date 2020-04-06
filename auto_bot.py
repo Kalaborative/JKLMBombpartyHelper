@@ -23,13 +23,28 @@ chrome_options.add_argument('disable-infobars')
 browser = webdriver.Chrome(options=chrome_options)
 browser.implicitly_wait(5)
 
+sleepy_seconds = [0.02, 0.04, 0.03]
+include_typos = [True, False]
+
 def sendWord(word):
-    sleep(1)
+    # sleep(1)
+    word = list(word)
+    typos = []
+    for i in range(10):
+        typos.append([choice(letterbank), Keys.BACKSPACE])
+    decide_if_typo = choice(include_typos)
+    if decide_if_typo:
+        number_of_typos = choice([1, 2, 3])
+        for i in range(number_of_typos):
+            word.insert(choice(range(len(word))), choice(typos))
+        word = [item for sublist in word for item in sublist]
     inputBox = browser.find_element_by_id("WordInputBox")
     for w in word:
+        seconds = choice(sleepy_seconds)
         inputBox.send_keys(w)
-        sleep(0.02) # recommend for 0.02 seconds
-    sleep(0.5) # leave a small window between suggestions
+        sleep(seconds) # recommend for 0.02 seconds
+        # print(seconds)
+    sleep(0.2) # leave a small window between suggestions
     inputBox.send_keys(Keys.ENTER)
 
 
@@ -183,6 +198,7 @@ elif language.lower() == "french":
                                 print("Result: {}".format(colored(chosen_word, 'green')))
                                 # pyperclip.copy(chosen_word)
                                 sendWord(chosen_word)
+                                sleep(0.2)
                                 text.remove(chosen_word)
                                 for c in chosen_word:
                                     if c.lower() in individual_letters:
