@@ -1,13 +1,15 @@
 from random import shuffle
-with open("touslesmots.txt", "r") as text:
-    words = text.read().splitlines()
-    print("Enter the string to find, optionally enter desired letters after a space.")
-    print("Example: ar")
-    print("Example: att b")
-    print("Example: tt skp")
-    while True:
-        search = input("Enter your string: ")
-        print("Searching ...")
+
+print("Enter the string to find, optionally enter desired letters after a space.")
+print("Example: ar")
+print("Example: att b")
+print("Example: tt skp")
+
+while True:
+    search = input("Enter your string: ")
+    print("Searching ...")
+    with open("touslesmots.txt", "r") as text:
+        words = text.read().splitlines()
         multi_search = search.split(" ")
         if len(multi_search) > 2:
             print("Please search only with one space.")
