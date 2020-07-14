@@ -13,8 +13,7 @@ You need a browser and Python installed on your system.
  1. Download or clone this repo. 
  2. Open a terminal and navigate to downloaded directory
  3. Run `pip install -r requirements.txt`
- 4. Run either **bot.py** or **minibot.py**. Minibot is condensed for
-    better performance. If it gives you an error about the wrong ChromeDriver version, please download the correct one [here](https://chromedriver.chromium.org/downloads)!
+ 4. Run either **auto_bot.py** or **auto_bot_nosend.py**. If it gives you an error about the wrong ChromeDriver version, please download the correct one [here](https://chromedriver.chromium.org/downloads)!
 
 ## Usage
 
@@ -34,6 +33,8 @@ Follow the prompts for English or French. You can type "stop" to stop the progra
 Edit **auto_bot.py** or **manual_bot.py** if you want to make your own changes.
 
 > You can filter the words you get from the dictionary.  For example, to only get words longer than eight letters, set `text = [t for t in text if len(t) > 8]`This is already supplied in the code.
+
+> You can also choose if you want a randomly chosen word or the longest word to be the result. Simply comment out one line and uncomment the other.
 
 Edit **sowpods.txt** or **touslesmots.txt** to alter the dictionaries.
 
