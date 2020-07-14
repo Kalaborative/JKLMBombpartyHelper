@@ -21,8 +21,9 @@ You need a browser and Python installed on your system.
 Follow the prompts for English or French. You can type "stop" to stop the program or manually break by pressing Ctrl+C.
 
  - *auto_bot.py* - Main script. This will open a Chrome window. Enter a game and it will automatically play the game for you. Must supply the language first.
+ - *auto_bot_nosend.py* - Same as auto_bot but will not automatically send results. randomly displays a word matching the prompt for you in real-time.
  - *manual_bot.py* - Use this one if you don't want to launch a new Chrome window, and offers more control with user input.
- - *new_word_fr.py* - Adds a new word to the French dictionary if not already there
+ - *new_word.py* - Adds a new word to the dictionaries if not already there
  - *search_fr.py* - Searches the French dictionary for a string of characters
  - *search_en.py* - Searches English dictionary for a string of characters
  - *sowpods.txt* - The user-supplied English dictionary
@@ -43,6 +44,6 @@ Edit **sowpods.txt** or **touslesmots.txt** to alter the dictionaries.
 Please feel free to contribute to the repo! Or if you would like to update the dictionairies, you may do that as well.
 
 ## Example use
-
+[NEEDS UPDATE]
 ![Sample Image](https://puu.sh/FrVco.png)
 
