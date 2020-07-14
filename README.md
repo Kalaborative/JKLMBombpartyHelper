@@ -27,6 +27,12 @@ Follow the prompts for English or French. You can type "stop" to stop the progra
  - *search_en.py* - Searches English dictionary for a string of characters
  - *sowpods.txt* - The user-supplied English dictionary
  - *touslesmots.txt* - The user-supplied French dictionary
+ 
+## Offline Training
+
+Run *train.py* to coach yourself to use specific words based on the prompts! You can type your prompt or let the program choose one for you.
+The supplied ones are examples of words you can use to train with, but you can replace them with your own.
+Remember if you want French instead, rename `sowpods.txt` to `touslesmots.txt`
 
 ## Customization
 
