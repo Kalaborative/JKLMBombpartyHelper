@@ -1,130 +1,137 @@
-AA='Closing program...'
-A9='Shutting down browser...'
-A8='green'
-A7='Result: {}'
-A6='A match could not be found!'
-A5='.syllable'
-A4='syllable'
-A3='Waiting for syllable to be detected...'
-A2='Error switching to a frame.'
-A1='Frame available. Switching...'
-A0='iframe'
-z='Game found! Locating frame...'
-y='game'
-x='Locating game...'
-w="To quit the program, type 'CTRL+C'."
-v='Word list loaded.'
-u='r'
-t='> '
-s=Exception
-r=KeyboardInterrupt
-q=open
-p=input
-i=len
-h=range
-Y=''
-S=False
-G=True
+AC='Closing program...'
+AB='Shutting down browser...'
+AA='green'
+A9='Result: {}'
+A8='A match could not be found!'
+A7='.syllable'
+A6='syllable'
+A5='Waiting for syllable to be detected...'
+A4='Error switching to a frame.'
+A3='Frame available. Switching...'
+A2='iframe'
+A1='Game found! Locating frame...'
+A0='game'
+z='Locating game...'
+y="To quit the program, type 'CTRL+C'."
+x='Word list loaded.'
+w='r'
+v='> '
+u=Exception
+t=KeyboardInterrupt
+s=open
+r=input
+j=len
+i=range
+Z=''
+J=False
+F=True
 A=print
 from time import sleep as H
-from random import choice as F
-from termcolor import colored as Z
-from selenium import webdriver as j
-from selenium.webdriver.chrome.options import Options as k
-from selenium.common.exceptions import JavascriptException as a,ElementNotInteractableException as b
-from selenium.webdriver.common.keys import Keys as c
-from selenium.webdriver.support.ui import WebDriverWait as T
-from selenium.webdriver.support import expected_conditions as U      
+from random import choice as G
+from termcolor import colored as a
+from colorama import init
+from selenium import webdriver as k
+from selenium.webdriver.chrome.options import Options as l
+from selenium.common.exceptions import JavascriptException as b,ElementNotInteractableException as c
+from selenium.webdriver.common.keys import Keys as d
+from selenium.webdriver.support.ui import WebDriverWait as S
+from selenium.webdriver.support import expected_conditions as T      
 from selenium.webdriver.common.by import By
 import pyperclip,json,sys
-l='https://jklm.fun/'
-V='abcdefghijlmnopqrstuv'
+m='https://jklm.fun/'
+U='abcdefghijlmnopqrstuv'
+init(autoreset=F)
 C=[]
-for J in V:C.append(J)
+for K in U:C.append(K)
 A('Starting up browser...')
-d=k()
-d.add_argument('disable-infobars')
-B=j.Chrome(options=d)
+e=l()
+e.add_argument('disable-infobars')
+B=k.Chrome(options=e)
 B.implicitly_wait(5)
-m=[0.02,0.04,0.03]
-n=[G,S]
-def e(word):
+n=[0.02,0.04,0.03]
+o=[F,J]
+def f(word):
         A=word;A=list(A);C=[]
-        for E in h(10):C.append([F(V),c.BACKSPACE])
-        G=F(n)
-        if G:
-                I=F([1,2,3])
-                for E in h(I):A.insert(F(h(i(A))),F(C))
+        for E in i(10):C.append([G(U),d.BACKSPACE])
+        F=G(o)
+        if F:
+                I=G([1,2,3])
+                for E in i(I):A.insert(G(i(j(A))),G(C))
                 A=[C for B in A for C in B]
         D=B.find_element_by_css_selector('.selfTurn input')
-        for J in A:K=F(m);D.send_keys(J);H(K)
-        H(0.2);D.send_keys(c.ENTER)
+        for J in A:K=G(n);D.send_keys(J);H(K)
+        H(0.2);D.send_keys(d.ENTER)
 A('Navigating to the JKLM website...')
-B.get(l)
-f=S
-while not f:A("Please choose your room! Hit enter when ready. Make sure you're in the game!");AB=p(t);f=G
+B.get(m)
+g=J
+while not g:A("Please choose your room! Hit enter when ready. Make sure you're in the game!");AD=r(v);g=F
 A('Choose ENGLISH or FRENCH')
-g=p(t)
-if g.lower()=='english':
-        with q('sowpods.txt',u)as W:
-                K=W.read().splitlines();A(v);H(1);A(w);H(1);o=[];A(x)
-                try:T(B,15).until(U.presence_of_element_located((By.CLASS_NAME,y)));A(z);L=B.find_elements_by_tag_name(A0);A(i(L));B.switch_to.default_content;A(A1);B.switch_to.frame(L[0])
-                except:A(A2)
-                A(A3);M=S
-                while not M:T(B,10).until(U.visibility_of_element_located((By.CLASS_NAME,A4)));M=G
-                while G:
+h=r(v)
+if h.lower()=='english':
+        with s('sowpods.txt',w)as W:
+                L=W.read().splitlines();A(x);H(1);A(y);H(1);p=[];A(z)
+                try:S(B,15).until(T.presence_of_element_located((By.CLASS_NAME,A0)));A(A1);M=B.find_elements_by_tag_name(A2);A(j(M));B.switch_to.default_content;A(A3);B.switch_to.frame(M[0])
+                except:A(A4)
+                A(A5);N=J
+                while not N:S(B,10).until(T.visibility_of_element_located((By.CLASS_NAME,A6)));N=F
+                while F:
                         try:
-                                C=[];D=Y;N=Y
-                                while G:
+                                C=[];D=Z;V=Z
+                                while F:
                                         I=[]
                                         if not C:
-                                                for J in V:C.append(J)
-                                        while N==D:D=B.find_element_by_css_selector(A5).text;D=D.lower()
-                                        O=S
-                                        for P in K:
-                                                if D in P.lower():O=G;I.append(P)
-                                        if not O:A(A6)
+                                                for K in U:C.append(K)
+                                        X=J
+                                        while not X:
+                                                q=B.find_element_by_css_selector('.selfTurn').get_attribute('hidden')
+                                                if q!='true':X=F     
+                                        D=B.find_element_by_css_selector(A7).text;D=D.lower();O=J
+                                        for P in L:
+                                                if D in P.lower():O=F;I.append(P)
+                                        if not O:A(A8)
                                         else:
                                                 Q=[A for A in I for B in C if B in A.lower()]
-                                                if Q:E=F(Q)
-                                                else:E=F(I)
-                                                A(A7.format(Z(E,A8)));e(E);H(0.3);K.remove(E)
+                                                if Q:E=G(Q)
+                                                else:E=G(I)
+                                                A(A9.format(a(E,AA)))
+                                                if X:f(E)
+                                                H(0.3);L.remove(E)   
                                                 for R in E:
                                                         if R.lower()in C:C.remove(R.lower())
-                                                N=D
-                        except r:A(A9);B.quit();A(AA);sys.exit()     
-                        except a:pass
+                                                V=D
+                        except t:A(AB);B.quit();A(AC);sys.exit()     
                         except b:pass
-                        except s as X:A(X)
-elif g.lower()=='french':
-        with q('touslesmots.txt',u)as W:
-                K=W.read().splitlines();A(v);H(1);A(w);H(1);o=[];A(x)
-                try:T(B,15).until(U.presence_of_element_located((By.CLASS_NAME,y)));A(z);L=B.find_elements_by_tag_name(A0);A(i(L));B.switch_to.default_content;A(A1);B.switch_to.frame(L[0])
-                except:A(A2)
-                A(A3);M=S
-                while not M:T(B,10).until(U.visibility_of_element_located((By.CLASS_NAME,A4)));M=G
-                while G:
+                        except c:pass
+                        except u as Y:A(Y)
+elif h.lower()=='french':
+        with s('touslesmots.txt',w)as W:
+                L=W.read().splitlines();A(x);H(1);A(y);H(1);p=[];A(z)
+                try:S(B,15).until(T.presence_of_element_located((By.CLASS_NAME,A0)));A(A1);M=B.find_elements_by_tag_name(A2);A(j(M));B.switch_to.default_content;A(A3);B.switch_to.frame(M[0])
+                except:A(A4)
+                A(A5);N=J
+                while not N:S(B,10).until(T.visibility_of_element_located((By.CLASS_NAME,A6)));N=F
+                while F:
                         try:
-                                C=[];D=Y;N=Y
-                                while G:
+                                C=[];D=Z;V=Z
+                                while F:
                                         I=[]
                                         if not C:
-                                                for J in V:C.append(J)
-                                        while N==D:D=B.find_element_by_css_selector(A5).text;D=D.lower()
-                                        O=S
-                                        for P in K:
-                                                if D in P.lower():O=G;I.append(P)
-                                        if not O:A(A6)
+                                                for K in U:C.append(K)
+                                        while V==D:D=B.find_element_by_css_selector(A7).text;D=D.lower()
+                                        O=J
+                                        for P in L:
+                                                if D in P.lower():O=F;I.append(P)
+                                        if not O:A(A8)
                                         else:
                                                 Q=[A for A in I for B in C if B in A.lower()]
-                                                if Q:E=F(Q)
-                                                else:E=F(I)
-                                                A(A7.format(Z(E,A8)));e(E);H(0.3);K.remove(E)
+                                                if Q:E=G(Q)
+                                                else:E=G(I)
+                                                A(A9.format(a(E,AA)));f(E);H(0.3);L.remove(E)
                                                 for R in E:
                                                         if R.lower()in C:C.remove(R.lower())
-                                                N=D
-                        except r:A(A9);B.quit();A(AA);sys.exit()     
-                        except a:pass
+                                                V=D
+                        except t:A(AB);B.quit();A(AC);sys.exit()     
                         except b:pass
-                        except s as X:A(X)
+                        except c:pass
+                        except u as Y:A(Y)
 else:A("Please type either 'english' or 'french'.")
