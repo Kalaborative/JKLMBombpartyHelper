@@ -25,10 +25,18 @@ with open("sowpods.txt", "r") as text:
             if matches:
                 print("Found {} results: ".format(len(matches)))
                 shuffle(matches)
+                print("Top longest words: ")
+                longest = list(sorted(matches, key=len, reverse=True))[:10]
+                for l in longest:
+                    print(l)
+                print("\n")
+                print("----------------------------------")
+                print("\n")
                 if len(matches) > 20:
                     matches = matches[:20]
                     print("Printing the first twenty results: ")
                 for m in matches:
                         print(m)
+
             else:
                 print("No matches found for that string/combination.")
