@@ -1,0 +1,10 @@
+apple
+banana
+cinnamon
+tomato
+lettuce
+mango
+carrot
+peach
+watermelon
+juice
